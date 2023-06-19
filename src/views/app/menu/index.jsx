@@ -48,8 +48,9 @@ const Menu = () => {
   }
 
   const getMenus = (page = 1) => {
+    const user = JSON.parse(localStorage.getItem('user'));
     api
-      .menus(page)
+      .menus(user?.id, page)
       .then(res => {
         if (res?.status === 200 && res?.data) {
           setMenus(res?.data);

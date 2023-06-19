@@ -31,8 +31,8 @@ const useApi = () => {
     return await axiosClient.apiClient('POST', 'menus/create/', data);
   }
 
-  const menus = async (page = 1) => {
-    return await axiosClient.apiClient('GET', 'menus/?page=' + page);
+  const menus = async (user_id, page = 1) => {
+    return await axiosClient.apiClient('GET', 'menus/?user_id='+user_id+'&page=' + page);
   }
 
   const updateMenu = async (data, menuId) => {
