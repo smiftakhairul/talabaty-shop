@@ -28,7 +28,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/update-profile" element={<UpdateProfile />} />
           <Route path="/menus" element={<Menu />} />
-          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<Login />} />
         </Routes>
       </Router>
     </>
