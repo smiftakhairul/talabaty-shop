@@ -39,6 +39,10 @@ const useApi = () => {
     return await axiosClient.apiClient('PUT', 'menus/'+menuId+'/update/', data);
   }
 
+  const deleteMenu = async (menuId) => {
+    return await axiosClient.apiClient('DELETE', 'menus/'+menuId+'/delete/');
+  }
+
   return {
     login,
     register,
@@ -48,7 +52,8 @@ const useApi = () => {
     categories,
     addMenu,
     menus,
-    updateMenu
+    updateMenu,
+    deleteMenu
   };
 }
 

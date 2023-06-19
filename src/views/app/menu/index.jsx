@@ -106,8 +106,22 @@ const Menu = () => {
       })
   }
 
+  const deleteMenu = (menuId) => {
+    const result = window.confirm('Are you sure you want to delete?');
+    if (result) {
+      api
+        .deleteMenu(menuId)
+        .then(res => {
+          getMenus();
+          notification.success('Item deleted successfully.')
+        })
+    } else {
+      console.log('canceled');
+    }
+  }
+
   const getPaginator = () => {
-    {menus?.total_pages > 1 && <div className="d-flex align-items-center justify-content-xl-between justify-content-center flex-wrap pagination-bx">
+    return <>{menus?.total_pages > 1 && <div className="d-flex align-items-center justify-content-xl-between justify-content-center flex-wrap pagination-bx">
       <div className="mb-sm-0 mb-3 pagination-title">
         {/* <p className="mb-0"><span>Showing 1-5</span> from <span>100</span> data</p> */}
       </div>
@@ -136,7 +150,7 @@ const Menu = () => {
           </li>}
         </ul>
       </nav>
-    </div>}
+    </div>}</>
   }
 
   const menuModal = () => {
@@ -234,7 +248,7 @@ const Menu = () => {
         <Navbar />
         <div className="content-body">
           <div className="container">
-            <div className="row">
+            <div className="row mb-5">
               <div className="col-xl-12">
                 <AddMenu setModalMenu={setModalMenu} />
                 {/* <Categories /> */}
@@ -302,8 +316,8 @@ const Menu = () => {
                                       </svg>
                                     </a>
                                     <div className="dropdown-menu">
-                                      <a className="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#addMenuModal" onClick={() => setModalMenu(menu)}>Edit</a>
-                                      <a className="dropdown-item" href="javascript:void(0);">Delete</a>
+                                      <a className="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#addMenuModal" onClick={() => setModalMenu(menu)}>Edit</a>
+                                      <a className="dropdown-item" href="#" onClick={(e) => {e.preventDefault(); deleteMenu(menu?.id)}}>Delete</a>
                                     </div>
                                   </div>
                                 </td>
@@ -315,7 +329,7 @@ const Menu = () => {
                     </div>
                   </div>
 
-                  {/* {getPaginator()} */}
+                  {getPaginator()}
                 </div>
                 <div className="tab-pane fade active show" id="pills-grid" role="tabpanel" aria-labelledby="pills-grid-tab">
                   <div className="row">
