@@ -7,6 +7,8 @@ import Login from './views/auth/login';
 import Register from './views/auth/register';
 import Profile from './views/app/profile';
 import UpdateProfile from './views/app/profile/update';
+import Order from './views/app/order';
+import AllOrder from './views/app/all-orders';
 
 function App() {
   const setIsLoggedInState = useSetRecoilState(isLoggedInStateAtom);
@@ -28,6 +30,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/update-profile" element={<UpdateProfile />} />
           <Route path="/menus" element={<Menu />} />
+          <Route path="/orders" element={<Order />} />
+          <Route path="/all-orders" element={<AllOrder />} />
           <Route path="*" element={<Login />} />
         </Routes>
       </Router>

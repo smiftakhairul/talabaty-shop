@@ -116,3 +116,13 @@ export const slugify = (text) => {
     .replace(/\s+/g, '-') // Replace consecutive spaces with a single hyphen
     .replace(/-+/g, '-'); // Replace consecutive hyphens with a single hyphen
 }
+
+export const shopOrderStatusList = () => {
+  return [
+    // {label: 'pending', value: 'pending'},
+    {label: 'preparing', value: 'preparing'},
+    {label: 'prepared', value: 'prepared'},
+    {label: 'delivered to rider', value: 'delivered to rider'},
+    {label: 'delivered', value: 'delivered'},
+  ]
+}

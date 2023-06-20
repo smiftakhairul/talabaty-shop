@@ -43,6 +43,18 @@ const useApi = () => {
     return await axiosClient.apiClient('DELETE', 'menus/'+menuId+'/delete/');
   }
 
+  const userOrders = async (id) => {
+    return await axiosClient.apiClient('GET', 'shop-orders/' + id + '/');
+  }
+
+  const userPaginatedOrders = async (id, page = 1) => {
+    return await axiosClient.apiClient('GET', 'shop-paginated-orders/' + id + '/?page=' + page);
+  }
+
+  const updateOrders = async (data, orderId) => {
+    return await axiosClient.apiClient('PUT', 'orders/'+orderId+'/update/', data);
+  }
+
   return {
     login,
     register,
@@ -53,7 +65,10 @@ const useApi = () => {
     addMenu,
     menus,
     updateMenu,
-    deleteMenu
+    deleteMenu,
+    userOrders,
+    userPaginatedOrders,
+    updateOrders
   };
 }
 
