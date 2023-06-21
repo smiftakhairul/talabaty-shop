@@ -80,7 +80,7 @@ const Order = () => {
 
             <div className="modal-inside">
               <label htmlFor="exampleInputText" className="form-label">Delivery Charge</label>
-              <input type="text" name="delivery_charge" className="form-control" id="exampleInputText" placeholder="" defaultValue={modalMenu?.delivery_charge} required />
+              <input type="text" name="delivery_charge" readOnly className="form-control" id="exampleInputText" placeholder="" defaultValue={modalMenu?.delivery_charge} required />
             </div>
           
           </div>
