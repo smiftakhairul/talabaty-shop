@@ -78,10 +78,10 @@ const Order = () => {
               <input type="text" name="estimated_time" className="form-control" id="exampleInputText" placeholder="" defaultValue={modalMenu?.estimated_time} required />
             </div>
 
-            <div className="modal-inside">
+            {/* <div className="modal-inside">
               <label htmlFor="exampleInputText" className="form-label">Delivery Charge</label>
               <input type="text" name="delivery_charge" readOnly className="form-control" id="exampleInputText" placeholder="" defaultValue={modalMenu?.delivery_charge} required />
-            </div>
+            </div> */}
           
           </div>
           <div className="modal-footer">
